@@ -1,0 +1,33 @@
+spring:
+ application:
+  name: NewsService
+ profiles:
+  active: dev, lfu
+ cloud:
+  openfeign:
+   client:
+    config:
+     comments-service:
+      url: ${COMMENTS_SERVICE_URL:http://localhost:8081/comments-service}
+      connect-timeout: 5000
+      read-timeout: 5000
+ redis:
+  host: ${REDIS_HOST:localhost}
+  port: ${REDIS_HOST_PORT:6379}
+ cache:
+  type: redis
+  custom: lfu
+  size: 10
+server:
+ port: 8080
+ servlet:
+  context-path: /news-service
+app:
+ logging:
+  enabled: true
+ exceptions:
+  handler:
+   enabled: true
+logging:
+ file:
+  path: ../logs/news-service.log

@@ -1,0 +1,8 @@
+spring:
+ datasource:
+  url: jdbc:tc:postgresql:15://news-test
+  username: test
+  password: test
+ liquibase:
+  change-log: classpath:db-test/changelog/db.changelog-test.yaml
+  enabled: true
