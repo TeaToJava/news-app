@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_HOST_PORT:5435}/${POSTGRES_DB:news}
+    username: ${POSTGRES_USER:root}
+    password: ${POSTGRES_PASSWORD:root}

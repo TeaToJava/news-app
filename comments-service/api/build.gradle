@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'war'
+    alias(libs.plugins.freefair.lombok)
+    alias(libs.plugins.spring.boot)
+    alias(libs.plugins.spring.dependency.management)
+}
+
+group = 'ru.clevertec'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    implementation project(':core')
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:4.2.0'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.2'
+    implementation "ru.clevertec:logging-starter:0.0.1-SNAPSHOT"
+    implementation "ru.clevertec:exceptions-starter:0.0.1-SNAPSHOT"
+
+
+    implementation "org.postgresql:postgresql:42.7.4"
+    implementation "org.hibernate.validator:hibernate-validator:8.0.1.Final"
+
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation "org.liquibase:liquibase-core:4.30.0"
+
+    implementation 'org.wiremock.integrations:wiremock-spring-boot:3.3.0'
+    testImplementation 'org.testcontainers:postgresql:1.20.4'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+bootJar {
+    mainClass = 'ru.clevertec.api.Main'
+}

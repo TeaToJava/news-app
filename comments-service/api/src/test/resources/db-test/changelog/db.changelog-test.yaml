@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db-test/changelog/1.0/create_extension_uuid.sql
+  - include:
+      file: db-test/changelog/1.0/create_table_comments.sql
+  - include:
+      file: db-test/changelog/1.0/fill_in_table_comments.sql
